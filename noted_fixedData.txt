@@ -1,34 +1,29 @@
-Pendidikan;
-Data yang di fix:
+- DATA YANG DI FIX
 
-preschool:
+Pendidikan
+
+- preschool:
 0.021
 0.002
-sd:
+
+- sd:
 0.060
 0.012
-smp:
+
+- smp:
 0.075
 9.016
-sma:
+
+- sma:
 0.043
 0.222
-s1:
+
+- s1:
 0.163
 0.314
-pasca:
+
+- pasca:
 0.638
 0.434
-
-Jam Kerja;
-0-33:
-0.021
-0.037
-33-66:
-0.192
-	
-66-%:
-0.787
-0.920
 
 	
