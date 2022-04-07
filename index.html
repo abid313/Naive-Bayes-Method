@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pertemuan Ke-5</title>
 
@@ -112,7 +113,7 @@
             } else if (jamkerja >= 33 && jamkerja <= 66){
                 jamkerjakurangdari = 0.192;
                 jamkerjalebihdari = 0.042;
-            } else if (jamkerja >= 66 && jamkerja < 1000){
+            } else if (jamkerja >= 66 && jamkerja < 168){
                 jamkerjakurangdari = 0.787;
                 jamkerjalebihdari = 0.920;
             } else {
@@ -131,13 +132,13 @@
                 text = textB;
             }
             
-            document.getElementById("hasil").innerHTML = " "+text+"";
+            document.getElementById("hasil").innerHTML = "<b>"+text+"</b>";
             document.getElementById("explain1").innerHTML = "Result <50 : "+ resultkurangdari;
             document.getElementById("explain2").innerHTML = "Result >50  : "+resultlebihdari;
         }
     </script>
 </head>
-<body>
+<body class="p-3">
     <p align="center">Selamat datang di Sistem Pendukung Keputusan Marketing PT BorjuService</p>
     <p align="center">Input Data Calon Costumer yang Ingin anda Prospek</p>
 
@@ -188,50 +189,51 @@
             </td>
         </tr>
     </table>
-    <button id="proses" onclick="prediksi()">Proses</button>
-    <p id="hasil"></p><br>
+    <button class="btn btn-primary" id="proses" onclick="prediksi()">Proses</button>
+    <p id="hasil"></p>
     <p id="explain1"></p>
     <p id="explain2"></p>
-    <br>
+    
+    <div class="container shadow-lg p-3 mb-5 bg-body rounded">
     <p><b>Data yang di-FIX agar data sesuai dan lebih akurat, antara lain yaitu:</b></p>
-    <div>
-        <div>
-            <p>Pendidikan;</p>
+    <div class="row">
+        <div class="d-grid gap-2 col-sm">
+            <p><b>Pendidikan</b></p>
             <ol>
-               <li>Preschool/Tidak Sekolah:</li>
-               <ul>
-                   <li>&lt50 : 0.021</li>
-                   <li>&gt50 : 0.002</li>
-               </ul>
-               <li>SD:</li>
-               <ul>
-                   <li>&lt50 : 0.060</li>
-                   <li>&gt50 : 0.012</li>
-               </ul>
-               <li>SMP:</li>
-               <ul>
-                   <li>&lt50 : 0.075</li>
-                   <li>&gt50 : 9.016</li>
-               </ul>
-               <li>SMA:</li>
-               <ul>
-                   <li>&lt50 : 0.043</li>
-                   <li>&gt50 : 0.222</li>
-               </ul>
-               <li>S1/Sarjana:</li>
-               <ul>
-                   <li>&lt50 : 0.163</li>
-                   <li>&gt50 : 0.314</li>
-               </ul>
-               <li>Pasca/Magister:</li>
-               <ul>
-                   <li>&lt50 : 0.638</li>
-                   <li>&gt50 : 0.434</li>
-               </ul>    
+                <li>Preschool/Tidak Sekolah:</li>
+                <ul>
+                    <li>&lt50 : 0.021</li>
+                    <li>&gt50 : 0.002</li>
+                </ul>
+                <li>SD:</li>
+                <ul>
+                    <li>&lt50 : 0.060</li>
+                    <li>&gt50 : 0.012</li>
+                </ul>
+                <li>SMP:</li>
+                <ul>
+                    <li>&lt50 : 0.075</li>
+                    <li>&gt50 : 9.016</li>
+                </ul>
+                <li>SMA:</li>
+                <ul>
+                    <li>&lt50 : 0.043</li>
+                    <li>&gt50 : 0.222</li>
+                </ul>
+                <li>S1/Sarjana:</li>
+                <ul>
+                    <li>&lt50 : 0.163</li>
+                    <li>&gt50 : 0.314</li>
+                </ul>
+                <li>Pasca/Magister:</li>
+                <ul>
+                    <li>&lt50 : 0.638</li>
+                    <li>&gt50 : 0.434</li>
+                </ul>    
             </ol>
         </div>
-        <div>
-            <p>Jam Kerja;</p>
+        <div class="d-grid gap-2 col-sm">
+            <p><b>Jam Kerja</b> </p>
             <ol>
                 <li>0 - 33 Jam:</li>
                 <ul>
@@ -243,7 +245,7 @@
                     <li>&lt50 : 0.192</li>
                     <li>&gt50 : 0.042</li>
                 </ul>
-                <li>66 - 1000 Jam:</li>
+                <li>66 - 168 Jam:</li>
                 <ul>
                     <li>&lt50 : 0.787</li>
                     <li>&gt50 : 0.920</li>
@@ -251,10 +253,7 @@
             </ol>
         </div>
     </div>
-
-
-
-
+    </div>
 </body>
 </html>
 
