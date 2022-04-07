@@ -111,11 +111,11 @@
                 jamkerjakurangdari = 0.021;
                 jamkerjalebihdari = 0.037;
             } else if (jamkerja >= 33 && jamkerja <= 66){
-                jamkerjakurangdari = 0.192;
-                jamkerjalebihdari = 0.042;
-            } else if (jamkerja >= 66 && jamkerja < 168){
                 jamkerjakurangdari = 0.787;
                 jamkerjalebihdari = 0.920;
+            } else if (jamkerja >= 66 && jamkerja < 168){
+                jamkerjakurangdari = 0.192;
+                jamkerjalebihdari = 0.042;
             } else {
                 jamkerjakurangdari = 0.0;
                 jamkerjalebihdari = 0.0;
@@ -139,46 +139,68 @@
     </script>
 </head>
 <body class="p-3">
-    <p align="center">Selamat datang di Sistem Pendukung Keputusan Marketing PT BorjuService</p>
-    <p align="center">Input Data Calon Costumer yang Ingin anda Prospek</p>
+    <h3 align="center">Selamat datang di Sistem Pendukung Keputusan Marketing PT BorjuService</h3>
+    <h5 align="center">Input Data Calon Costumer yang Ingin anda Prospek</h5>
 
     <table>
         <tr>
             <td>Berapa Keuntungan Investasi Saham Calon Custumer tahun lalu?</td>
-            <td><input type="text" id="untung" style="width: 100px;"> US Dollar</td>
+            <!-- <td><input type="text" id="untung" style="width: 100px;"> US Dollar</td> -->
+            <td>
+                <div class="pt-3 input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="text" id="untung" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-text">.00</span>
+                  </div>
+            </td>
         </tr>
         <tr>
             <td>Pernah Rugi Saham? Jika ya, Berapa kerugian mereka?</td>
-            <td><input type="text" id="rugi" style="width: 100px;"> US Dollar</td>
+            <!-- <td><input type="text" id="rugi" style="width: 100px;"> US Dollar</td> -->
+            <td>
+                <div class="pt-3 input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="text" id="rugi" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-text">.00</span>
+                  </div>
+            </td>
         </tr>
         <tr>
             <td>Apa Profesi Calon Costumer?</td>
             <td>
-                <select id="profesi">
-                    <option value="exec-managerial">exec-managerial</option>
-                    <option value="handlers-cleaner">handlers-cleaner</option>
-                    <option value="prof-specialty">prof-specialty</option>
-                    <option value="other-service">other-service</option>
-                    <option value="adm-clerical">adm-clerical</option>
-                    <option value="sales">sales</option>
-                    <option value="craft-repair">craft-repair</option>
-                    <option value="transport-moving">transport-moving</option>
-                    <option value="farming-fishing">farming-fishing</option>
-                    <option value="machine-op-inspect">machine-op-inspect</option>
-                    <option value="tech-support">tech-support</option>
-                    <option value="protective-service">protective-service</option>
-                    <option value="armed-forces">armed-forces</option>
-                    <option value="priv-house-serv">priv-house-serv</option>
+                <select class="form-select" id="profesi">
+                    <option selected>Open this select menu</option>
+                    <option value="exec-managerial">Executive Manager</option>
+                    <option value="handlers-cleaner">Handlers Cleaner</option>
+                    <option value="prof-specialty">Professional Specialty</option>
+                    <option value="other-service">Other Service</option>
+                    <option value="adm-clerical">Admin Clerical</option>
+                    <option value="sales">Sales</option>
+                    <option value="craft-repair">Craft Repair</option>
+                    <option value="transport-moving">Transport Moving</option>
+                    <option value="farming-fishing">Farming - Fishing</option>
+                    <option value="machine-op-inspect">Machine Operator Inspect</option>
+                    <option value="tech-support">Tech Support</option>
+                    <option value="protective-service">Protective Service</option>
+                    <option value="armed-forces">Armed Forces</option>
+                    <option value="priv-house-serv">Private House Service</option>
                 </select><br>
             </td>
         </tr>
         <tr>
             <td>Berapa jam waktu kerja mereka perminggu?</td>
-            <td><input type="text" id="jamkerja" style="width: 100px;"> Jam</td>
+            <!-- <td><input type="text" id="jamkerja" style="width: 100px;"> Jam</td> -->
+            <td>
+                <div class="input-group mb-3">
+                    <input type="text" id="jamkerja" class="form-control" aria-describedby="basic-addon2">
+                    <span class="input-group-text" id="basic-addon2">Jam</span>
+                  </div>
+            </td>
         </tr>
         <tr>
             <td>Bagaimana Tingkat Pendidikan Calon Costumer?</td>
-            <td><select id="pendidikan">
+            <td><select class="form-select" id="pendidikan">
+                    <option selected>Open this select menu</option>
                     <option value="Preschool">Tidak Sekolah</option>
                     <option value="SD">Pernah/Lulus SD</option>
                     <option value="SMP">Pernah/Lulus SMP</option>
@@ -197,7 +219,7 @@
     <div class="container shadow-lg p-3 mb-5 bg-body rounded">
     <p><b>Data yang di-FIX agar data sesuai dan lebih akurat, antara lain yaitu:</b></p>
     <div class="row">
-        <div class="d-grid gap-2 col-sm">
+        <div class="d-grid gap-sm col-sm">
             <p><b>Pendidikan</b></p>
             <ol>
                 <li>Preschool/Tidak Sekolah:</li>
@@ -230,26 +252,6 @@
                     <li>&lt50 : 0.638</li>
                     <li>&gt50 : 0.434</li>
                 </ul>    
-            </ol>
-        </div>
-        <div class="d-grid gap-2 col-sm">
-            <p><b>Jam Kerja</b> </p>
-            <ol>
-                <li>0 - 33 Jam:</li>
-                <ul>
-                    <li>&lt50 : 0.021</li>
-                    <li>&gt50 : 0.037</li>
-                </ul>
-                <li>33 - 66 Jam:</li>
-                <ul>
-                    <li>&lt50 : 0.192</li>
-                    <li>&gt50 : 0.042</li>
-                </ul>
-                <li>66 - 168 Jam:</li>
-                <ul>
-                    <li>&lt50 : 0.787</li>
-                    <li>&gt50 : 0.920</li>
-                </ul>
             </ol>
         </div>
     </div>
