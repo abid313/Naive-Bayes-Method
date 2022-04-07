@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan Ke-5</title>
+
+    <script>
+        function prediksi(){
+            // variables
+            var untung = parseInt(document.getElementById("untung").value);
+            var rugi = parseInt(document.getElementById("rugi").value);
+            var jamkerja = parseInt(document.getElementById("jamkerja").value);
+            var pendidikan = document.getElementById("pendidikan").value;
+            var profesi = document.getElementById("profesi").value;
+            // texts output
+            var text;
+            var textA = "Sepertinya Calon Costumer anda orang kaya dengan pendapatan >50000 Dolar/Tahun, Segera Prospek Jangan sia-siakan Kesempatan"
+            var textB = "Sepertinya Calon Costumer anda berpendapatan <50000 Dolar/Tahun, dia akan kesulitan membeli produk anda"
+            let capitalgain;
+            // result
+            capitalgain = untung-rugi;
+            // check capitalgain
+            if (capitalgain > -1000000 && capitalgain <= 30429){
+                capitalgainkurangdari = 1.000;
+                capitalgainlebihdari = 0.981;
+            } else if (capitalgain >= 30429 && capitalgain <= 65214){
+                capitalgainkurangdari = 0.000;
+                capitalgainlebihdari = 0.000;
+            } else if (capitalgain >= 65214 && capitalgain < 1000000){
+                capitalgainkurangdari = 0.000;
+                capitalgainlebihdari = 0.019;
+            } else {
+                capitalgainkurangdari = 0.000;
+                capitalgainlebihdari = 0.000;
+            }
+            // check pendidikan
+            if (pendidikan == "Preschool"){
+                pendidikankurangdari = 0.021;
+                pendidikanlebihdaril = 0.002;
+            } else if (pendidikan == "SD"){
+                pendidikankurangdari = 0.060;
+                pendidikanlebihdaril = 0.012;
+            } else if (pendidikan == "SMP"){
+                pendidikankurangdari = 0.075;
+                pendidikanlebihdaril = 0.016;
+            } else if (pendidikan == "SMA"){
+                pendidikankurangdari = 0.043;
+                pendidikanlebihdaril = 0.222;
+            } else if (pendidikan == "S1"){
+                pendidikankurangdari = 0.163;
+                pendidikanlebihdaril = 0.314;
+            } else if (pendidikan == "Pasca"){
+                pendidikankurangdari = 0.638;
+                pendidikanlebihdaril = 0.434;
+            } else {
+                pendidikankurangdari = 0.000;
+                pendidikanlebihdaril = 0.000;
+            }
+            // check profesi
+            if (profesi == "exec-managerial"){
+                profesikurangdari = 0.089;
+                profesilebihdari = 0.256;
+            } else if (profesi == "handlers-cleaner"){
+                profesikurangdari = 0.056;
+                profesilebihdari = 0.011;
+            } else if (profesi == "prof-specialty"){
+                profesikurangdari = 0.100;
+                profesilebihdari = 0.249;
+            } else if (profesi == "other-service"){
+                profesikurangdari = 0.137;
+                profesilebihdari = 0.017;
+            } else if (profesi == "adm-clerical"){
+                profesikurangdari = 0.141;
+                profesilebihdari = 0.066;
+            } else if (profesi == "sales"){
+                profesikurangdari = 0.117;
+                profesilebihdari = 0.125;
+            } else if (profesi == "craft-repair"){
+                profesikurangdari = 0.136;
+                profesilebihdari = 0.123;
+            } else if (profesi == "transport-moving"){
+                profesikurangdari = 0.055;
+                profesilebihdari = 0.041;
+            } else if (profesi == "farming-fishing"){
+                profesikurangdari = 0.038;
+                profesilebihdari = 0.015;
+            } else if (profesi == "machine-op-inspect"){
+                profesikurangdari = 0.077;
+                profesilebihdari = 0.032;
+            } else if (profesi == "tech-support"){
+                profesikurangdari = 0.027;
+                profesilebihdari = 0.037;
+            } else if (profesi == "protective-service"){
+                profesikurangdari = 0.019;
+                profesilebihdari = 0.028;
+            } else if (profesi == "armed-forces"){
+                profesikurangdari = 0.000;
+                profesilebihdari = 0.000;
+            } else if (profesi == "priv-house-serv"){
+                profesikurangdari = 0.007;
+                profesilebihdari = 0.000;
+            } else {
+                profesikurangdari = 0.000;
+                profesilebihdari = 0.000;
+            }
+            // check jamkerja
+            if (jamkerja > 0 && jamkerja <= 33){
+                jamkerjakurangdari = 0.021;
+                jamkerjalebihdari = 0.037;
+            } else if (jamkerja >= 33 && jamkerja <= 66){
+                jamkerjakurangdari = 0.192;
+                jamkerjalebihdari = 0.042;
+            } else if (jamkerja >= 66 && jamkerja < 1000){
+                jamkerjakurangdari = 0.787;
+                jamkerjalebihdari = 0.920;
+            } else {
+                jamkerjakurangdari = 0.0;
+                jamkerjalebihdari = 0.0;
+            }
+            // di akumulasi nilai
+            let resultkurangdari;
+            let resultlebihdari;
+            resultkurangdari = capitalgainkurangdari * pendidikankurangdari * profesikurangdari * jamkerjakurangdari * 0.751;
+            resultlebihdari = capitalgainlebihdari * pendidikanlebihdaril * profesilebihdari * jamkerjalebihdari * 0.249;
+            // check <=50 & >50
+            if (resultlebihdari > resultkurangdari){
+                text = textA;
+            } else {
+                text = textB;
+            }
+            
+            document.getElementById("hasil").innerHTML = " "+text+"";
+            document.getElementById("explain1").innerHTML = "Result <50 : "+ resultkurangdari;
+            document.getElementById("explain2").innerHTML = "Result >50  : "+resultlebihdari;
+        }
+    </script>
+</head>
+<body>
+    <p align="center">Selamat datang di Sistem Pendukung Keputusan Marketing PT BorjuService</p>
+    <p align="center">Input Data Calon Costumer yang Ingin anda Prospek</p>
+
+    <table>
+        <tr>
+            <td>Berapa Keuntungan Investasi Saham Calon Custumer tahun lalu?</td>
+            <td><input type="text" id="untung" style="width: 100px;"> US Dollar</td>
+        </tr>
+        <tr>
+            <td>Pernah Rugi Saham? Jika ya, Berapa kerugian mereka?</td>
+            <td><input type="text" id="rugi" style="width: 100px;"> US Dollar</td>
+        </tr>
+        <tr>
+            <td>Apa Profesi Calon Costumer?</td>
+            <td>
+                <select id="profesi">
+                    <option value="exec-managerial">exec-managerial</option>
+                    <option value="handlers-cleaner">handlers-cleaner</option>
+                    <option value="prof-specialty">prof-specialty</option>
+                    <option value="other-service">other-service</option>
+                    <option value="adm-clerical">adm-clerical</option>
+                    <option value="sales">sales</option>
+                    <option value="craft-repair">craft-repair</option>
+                    <option value="transport-moving">transport-moving</option>
+                    <option value="farming-fishing">farming-fishing</option>
+                    <option value="machine-op-inspect">machine-op-inspect</option>
+                    <option value="tech-support">tech-support</option>
+                    <option value="protective-service">protective-service</option>
+                    <option value="armed-forces">armed-forces</option>
+                    <option value="priv-house-serv">priv-house-serv</option>
+                </select><br>
+            </td>
+        </tr>
+        <tr>
+            <td>Berapa jam waktu kerja mereka perminggu?</td>
+            <td><input type="text" id="jamkerja" style="width: 100px;"> Jam</td>
+        </tr>
+        <tr>
+            <td>Bagaimana Tingkat Pendidikan Calon Costumer?</td>
+            <td><select id="pendidikan">
+                    <option value="Preschool">Tidak Sekolah</option>
+                    <option value="SD">Pernah/Lulus SD</option>
+                    <option value="SMP">Pernah/Lulus SMP</option>
+                    <option value="SMA">Pernah/Lulus SMA</option>
+                    <option value="S1">Diploma/Pernah S1/Sarjana</option>
+                    <option value="Pasca">Magister/Doktoral/Sekolah Professional</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <button id="proses" onclick="prediksi()">Proses</button>
+    <p id="hasil"></p><br>
+    <p id="explain1"></p>
+    <p id="explain2"></p>
+    <br>
+    <p><b>Data yang di-FIX agar data sesuai dan lebih akurat, antara lain yaitu:</b></p>
+    <div>
+        <div>
+            <p>Pendidikan;</p>
+            <ol>
+               <li>Preshchool/Tidak Sekolah:</li>
+               <ul>
+                   <li>&lt50 : 0.021</li>
+                   <li>&gt50 : 0.002</li>
+               </ul>
+               <li>SD:</li>
+               <ul>
+                   <li>&lt50 : 0.060</li>
+                   <li>&gt50 : 0.012</li>
+               </ul>
+               <li>SMP:</li>
+               <ul>
+                   <li>&lt50 : 0.075</li>
+                   <li>&gt50 : 9.016</li>
+               </ul>
+               <li>SMA:</li>
+               <ul>
+                   <li>&lt50 : 0.043</li>
+                   <li>&gt50 : 0.222</li>
+               </ul>
+               <li>S1/Sarjana:</li>
+               <ul>
+                   <li>&lt50 : 0.163</li>
+                   <li>&gt50 : 0.314</li>
+               </ul>
+               <li>Pasca/Magister:</li>
+               <ul>
+                   <li>&lt50 : 0.638</li>
+                   <li>&gt50 : 0.434</li>
+               </ul>    
+            </ol>
+        </div>
+        <div>
+            <p>Jam Kerja;</p>
+            <ol>
+                <li>0 - 33 Jam:</li>
+                <ul>
+                    <li>&lt50 : 0.021</li>
+                    <li>&gt50 : 0.037</li>
+                </ul>
+                <li>33 - 66 Jam:</li>
+                <ul>
+                    <li>&lt50 : 0.192</li>
+                    <li>&gt50 : 0.042</li>
+                </ul>
+                <li>0 - 33 Jam:</li>
+                <ul>
+                    <li>&lt50 : 0.787</li>
+                    <li>&gt50 : 0.920</li>
+                </ul>
+            </ol>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
+
+            
