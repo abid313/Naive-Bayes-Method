@@ -81,7 +81,7 @@
         <parameter key="except_block_type" value="value_series_end"/>
         <parameter key="invert_selection" value="false"/>
         <parameter key="include_special_attributes" value="false"/>
-        <parameter key="number_of_bins" value="5"/>
+        <parameter key="number_of_bins" value="6"/>
         <parameter key="define_boundaries" value="false"/>
         <parameter key="range_name_type" value="long"/>
         <parameter key="automatic_number_of_digits" value="true"/>
