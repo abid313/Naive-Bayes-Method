@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan Ke-5</title>
+
+    <script>
+        function prediksi(){
+            // variables
+            var untung = parseInt(document.getElementById("untung").value);
+            var rugi = parseInt(document.getElementById("rugi").value);
+            var pendidikan = parseInt(document.getElementById("pendidikan").value);
+            var jamkerja = parseInt(document.getElementById("jamkerja").value);
+            var profesi = parseInt(document.getElementById("profesi").value);
+            // texts output
+            var text;
+            var textA = "Sepertinya Calon Costumer anda orang kaya dengan pendapatan >50000 Dolar/Tahun, Segera Prospek Jangan sia-siakan Kesempatan"
+            var textB = "Sepertinya Calon Costumer anda berpendapatan <50000 Dolar/Tahun, dia akan kesulitan membeli produk anda"
+            var capitalgain;
+            // result
+            capitalgain = untung-rugi;
+
+            if (capitalgain > 65214){
+                text= textA;
+            } else if (capitalgain < 65214 && capitalgain > 30429){
+                text = textB;
+            } else if (capitalgain < 30429){
+                if (pendidikan != "Pasca" && pendidikan != "SMP"){
+                    text = textB;
+                } else if (pendidikan == "Pasca"){
+                    if (jamkerja > 33){
+                        text = textA;
+                    } else {
+                        text = textB;
+                    }
+                } else if (pendidikan == "SMP"){
+                    if (profesi == "Professional" && jamkerja > 66){
+                        text = textA;
+                    } else {
+                        text = textB;
+                    }
+                }
+            }
+            document.getElementById("hasil").innerHTML = ""+text+"";
+        }
+    </script>
+</head>
+<body>
+    <p align="center">Selamat datang di Sistem Pendukung Keputusan Marketing PT BorjuService</p>
+    <p align="center">Input Data Calon Costumer yang Ingin anda Prospek</p>
+
+    <table>
+        <tr>
+            <td>Berapa Keuntungan Investasi Saham Calon Custumer tahun lalu?</td>
+            <td><input type="text" id="untung" style="width: 100px;"> US Dollar</td>
+        </tr>
+        <tr>
+            <td>Pernah Rugi Saham? Jika ya, Berapa kerugian mereka?</td>
+            <td><input type="text" id="rugi" style="width: 100px;"> US Dollar</td>
+        </tr>
+        <tr>
+            <td>Apa Profesi Calon Costumer?</td>
+            <td>
+                <select id="profesi">
+                    <option value="Professional">Professional/Spesialis</option>
+                    <option value="Nonprofessional">Bukan Professional/Spesialis</option>
+                </select><br>
+            </td>
+        </tr>
+        <tr>
+            <td>Berapa jam waktu kerja mereka perminggu?</td>
+            <td><input type="text" id="jamkerja" style="width: 100px;"> Jam</td>
+        </tr>
+        <tr>
+            <td>Bagaimana Tingkat Pendidikan Calon Costumer?</td>
+            <td><select id="pendidikan">
+                    <option value="Preschool">Tidak Sekolah</option>
+                    <option value="SD">Pernah/Lulus SD</option>
+                    <option value="SMP">Pernah/Lulus SMP</option>
+                    <option value="SMA">Pernah/Lulus SMA</option>
+                    <option value="S1">Diploma/Pernah S1/Sarjana</option>
+                    <option value="Pasca">Magister/Doktoral/Sekolah Professional</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <button id="proses" onclick="prediksi()">Proses</button>
+    <p id="hasil"></p>  
+</body>
+</html>
