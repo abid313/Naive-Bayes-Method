@@ -1,4 +1,4 @@
-# Navie-Bayes-Method
+# Naive-Bayes-Method
 Link : https://abid313.github.io/Naive-Bayes-Method/
 
 contributor:
